@@ -110,10 +110,10 @@ public class QuickStartSlides {
 		for (int i = 0; i < slides.size(); i++) {
 			Page slide = slides.get(i);
 			GetThumbnail getThumbnail = service.presentations().pages().getThumbnail(presentationId,
-					slide.getObjectId());
+					slide.getObjectId()).setThumbnailPropertiesThumbnailSize("LARGE");
 			Thumbnail thumbnail = getThumbnail.execute();
 			System.out.println(thumbnail.getContentUrl());
-			saveImage(thumbnail.getContentUrl(), "C:\\Users\\absin\\Downloads\\Session2\\" + i + ".png");
+			saveImage(thumbnail.getContentUrl(), "C:\\Users\\absin\\Downloads\\Session2\\" + i + "_desktop.png");
 			System.out.printf("- Slide #%s contains %s elements.\n", i + 1, slide.getPageElements().size());
 		}
 	}
